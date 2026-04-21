@@ -30,17 +30,28 @@ python manage.py runserver
 
 ## 📡 Endpoints
 
-| Método | URL | Descripción |
-|--------|-----|-------------|
-| GET | /api/trips/ | Listar todos los viajes |
-| POST | /api/trips/ | Crear un viaje |
-| GET | /api/trips/{id}/ | Ver un viaje |
-| PUT | /api/trips/{id}/ | Actualizar un viaje |
-| DELETE | /api/trips/{id}/ | Eliminar un viaje |
+| Método | URL | Descripción | Auth |
+|--------|-----|-------------|------|
+| POST | /api/auth/token/ | Obtener token JWT | ❌ |
+| POST | /api/auth/token/refresh/ | Renovar token JWT | ❌ |
+| GET | /api/trips/ | Listar todos los viajes | ✅ |
+| POST | /api/trips/ | Crear un viaje | ✅ |
+| GET | /api/trips/{id}/ | Ver un viaje | ✅ |
+| PUT | /api/trips/{id}/ | Actualizar un viaje | ✅ |
+| DELETE | /api/trips/{id}/ | Eliminar un viaje | ✅ |
 
+## 🔐 Autenticación
+
+La API usa JWT. Para acceder a los endpoints protegidos:
+
+1. Obtené tu token en `POST /api/auth/token/`
+2. Incluilo en el header de cada request:
+```
+Authorization: Bearer <tu_token>
+```
 ## 🔜 Próximamente
 
-- Autenticación JWT
 - Tareas asíncronas con Celery + Redis
 - Docker & Docker Compose
 - Tests con pytest
+- Integración Google Maps API
