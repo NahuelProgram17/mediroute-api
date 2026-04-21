@@ -136,3 +136,9 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
 }
+
+# Celery
+CELERY_BROKER_URL = 'rediss://:IxpZ1N2fwJTh9V25hKOXsV1pw2vZpZsh@redis-10594.c244.us-east-1-2.ec2.cloud.redislabs.com:10594/0?ssl_cert_reqs=none'
+CELERY_RESULT_BACKEND = 'rediss://:IxpZ1N2fwJTh9V25hKOXsV1pw2vZpZsh@redis-10594.c244.us-east-1-2.ec2.cloud.redislabs.com:10594/0?ssl_cert_reqs=none'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
